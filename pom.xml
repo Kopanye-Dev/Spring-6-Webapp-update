@@ -11,8 +11,8 @@
 	<groupId>guru.springframework</groupId>
 	<artifactId>Spring-6-Webapp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name/>
-	<description/>
+	<name>spring-6-Webapp</name>
+	<description>Spring 6 Web App</description>
 	<url/>
 	<licenses>
 		<license/>
