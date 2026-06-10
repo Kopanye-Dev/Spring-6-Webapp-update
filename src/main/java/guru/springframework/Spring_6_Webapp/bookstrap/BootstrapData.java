@@ -3,8 +3,10 @@ package guru.springframework.Spring_6_Webapp.bookstrap;
 
 import guru.springframework.Spring_6_Webapp.domain.Author;
 import guru.springframework.Spring_6_Webapp.domain.Book;
+import guru.springframework.Spring_6_Webapp.domain.Publisher;
 import guru.springframework.Spring_6_Webapp.repositories.AuthorRepository;
 import guru.springframework.Spring_6_Webapp.repositories.BookRepository;
+import guru.springframework.Spring_6_Webapp.repositories.PublisherRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -13,10 +15,14 @@ public class BootstrapData implements CommandLineRunner {
 
     private final AuthorRepository authorRepository;
     private final BookRepository bookRepository;
+    private final PublisherRepository publisherRepository;
 
-    public BootstrapData(AuthorRepository authorRepository, BookRepository bookRepository) {
+
+
+    public BootstrapData(AuthorRepository authorRepository, BookRepository bookRepository, PublisherRepository publisherRepository) {
         this.authorRepository = authorRepository;
         this.bookRepository = bookRepository;
+        this.publisherRepository = publisherRepository;
     }
 
     @Override
@@ -54,6 +60,18 @@ public class BootstrapData implements CommandLineRunner {
         System.out.println("Book Count: " + bookRepository.count());
 
 
+        Publisher kay = new Publisher();
+        kay.setPublisherName("Kopanye Ramokgopa");
+        kay.setAddress("5 Diagonal Street");
+        kay.setCity("Midrand");
+        kay.setState("Gauteng");
+        kay.setZip("1685");
+
+        Publisher kaySaved = publisherRepository.save(kay);
+
+        publisherRepository.save(kaySaved);
+
+        System.out.println("Publisher Count: " + publisherRepository.count());
 
     }
 }
