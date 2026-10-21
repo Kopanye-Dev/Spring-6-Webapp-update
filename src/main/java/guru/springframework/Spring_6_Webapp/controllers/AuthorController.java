@@ -13,13 +13,14 @@ public class AuthorController {
     private final AuthorService authorService;
 
     public AuthorController(AuthorService authorService) {
+
         this.authorService = authorService;
     }
 
-    @RequestMapping("/author")
-    public String getAuthor(Model model){
+    @RequestMapping("/authors")
+    public String getAuthors(Model model){
 
-        model.addAttribute("author",authorService.findAll());
+        model.addAttribute("authors",authorService.findAll());
 
         return "author";
 
